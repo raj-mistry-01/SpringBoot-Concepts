@@ -1,0 +1,32 @@
+What is autowired
+
+It is for dependancy injection resolution
+
+User{
+    Order object
+}
+
+for User we need Order object as well
+
+We have to spring that
+when you intialize user intialize the user you might need order as well for some logic in it
+
+This is called such as dependancy.
+
+When you know your object is dependancy of some other object add Component to tell it is bean and
+
+Observe the behavoir when you write the only component  or with Lazy and component
+
+With only component it is independent bean
+
+with lazy user will intialize first then if someone needed that object then intialize what this lazy does
+
+you can not make immutable or final in autowired
+
+
+Field injection
+Setter injection
+Constructor injection
+
+With contructor injection you can acheive final Keyword means immtubale
+

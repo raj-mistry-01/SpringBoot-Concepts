@@ -1,0 +1,10 @@
+Suppose you have Order
+which is having two child class which implemets Order interface
+
+Now suppose you have  dependecy injection like Order order
+
+Which one to call ??? which concrete class have to be called
+
+Use primary annotation for that ambiguity
+
+You can Qualifier annotation for creating some specific concrete class' bean 
