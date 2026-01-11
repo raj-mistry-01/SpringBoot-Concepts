@@ -21,12 +21,29 @@ With only component it is independent bean
 
 with lazy user will intialize first then if someone needed that object then intialize what this lazy does
 
-you can not make immutable or final in autowired
+you can not make immutable or final in autowired that is diadvantage here
 
 
 Field injection
 Setter injection
 Constructor injection
 
-With contructor injection you can acheive final Keyword means immtubale
+With contructor injection you can acheive final Keyword means
+
+
+Advnatnages :
+Witn constructor you use autowired on ctor of that class
+you can pass dependancy object in params of that autowired
+means you can also final on that obj
+
+Disadv :
+
+Circular dependancy
+
+User has Order dependancy
+Order has User dependancy
+
+Which one got intialized ??? deadlock type
+
+Sol. @Lazy in one of the Dependancy with @Component or @Lazy on @Autowired of any one
 

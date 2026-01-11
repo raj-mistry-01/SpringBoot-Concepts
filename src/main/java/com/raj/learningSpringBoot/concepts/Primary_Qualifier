@@ -7,4 +7,7 @@ Which one to call ??? which concrete class have to be called
 
 Use primary annotation for that ambiguity
 
-You can Qualifier annotation for creating some specific concrete class' bean 
+You can Qualifier annotation for creating some specific concrete class' bean
+
+You have to give name to concrete class
+use that name in @Qualifier

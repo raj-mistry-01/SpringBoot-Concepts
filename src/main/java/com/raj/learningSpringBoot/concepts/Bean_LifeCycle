@@ -1,0 +1,44 @@
+
+When you write @Component
+
+It tells the spring that  you have a bean for it and manage it's lifecycle
+
+IOC container has the pool of objects it needed
+
+
+Suppose you write
+
+@Component
+
+public class User{
+
+    // Some constructor with params
+
+}
+
+
+when you write any ctor that will hide the default ctor provided by java
+
+Now what to pass in params??? -> que for bean -> app start to failed
+
+@Configuration
+@Bean in Appconfig class
+
+tells the spring to do not use autoconfiguration for bean but instead refer this one with params
+
+Suppose @Bean and default both presented then -> 1st priority goes to @Bean
+
+What if there are 2 beans which returns the User
+Ans. Spring will create bean for both.
+
+
+How spring boot find these Beans?
+Ans. Component Scan annotation in Springbootappication run above
+
+
+At what time , these beans get created?
+
+
+
+
+

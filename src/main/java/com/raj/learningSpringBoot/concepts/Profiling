@@ -1,0 +1,13 @@
+for a single project many application.properties
+for SDE , QA , PROD -> many properties
+
+Profiling is creating seperate env for diff profiles
+
+
+application-p1.properties
+application-p2.properties
+spring.profiles.active = profile-name (this will be picked by spring )
+
+@Profile it first checks that
+@Profile(nameofProfile)
+nameofProfile is active then only create that bean

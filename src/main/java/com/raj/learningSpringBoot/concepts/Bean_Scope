@@ -1,0 +1,61 @@
+In Spring Framework, bean scope defines how many objects of a bean Spring creates and how long they live.
+
+Singleton
+Prototype
+Request
+Session
+
+@Scope(ConfigurableBeanFactory.)
+or
+@Scope("")
+
+you can check to check bean is same or not
+using hashCode
+
+
+Singleton
+
+Only one bean in all over IOC container
+
+@Scope you can use @Scope("singleton")
+ Only ONE bean instance is created
+ Shared across the entire IOC container
+ Default scope (even if you don’t write @Scope)
+
+ Created at application startup
+ Destroyed when application stops
+
+ By default all are singleton when you write only @Component
+
+
+Prototype
+@Scope("prototype")
+
+New object every time you request the bean
+Spring does not manage destruction
+Created on demand
+Destroyed by JVM / GC, not Spring
+lazily init
+
+
+Request
+Lazili init
+for evry http request
+
+You can wriet @Scope("request") on restcontroller
+
+When you controller is having singleton and autowired dependancy has reqeust scope
+
+this will fail to start scope
+
+Sol. proxy mode
+
+Seesion
+One bean per user session
+Same user → same object
+Session ends → bean destroyed
+
+Application
+
+multiple IOC still same bean
+Singleton is same bean across one IOC

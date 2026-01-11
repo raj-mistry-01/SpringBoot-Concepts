@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
 @Component // tells IOC to create bean of it
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class User {
 
     @JsonProperty("user_name")

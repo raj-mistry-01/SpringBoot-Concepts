@@ -1,0 +1,6 @@
+Bean is created on condition based which you define in application properties
+
+through this annotation and application properties
+prefix
+value
+havingValue

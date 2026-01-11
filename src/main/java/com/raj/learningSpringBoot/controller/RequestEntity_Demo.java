@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api/")
-public class RequesrEntity_Demo {
+public class RequestEntity_Demo {
     @PostMapping(path = "/respEntityDemo")
     public ResponseEntity getUserDetails(@RequestBody User user){
         String output = "Data recieved : " + user.username + " " + user.email;
