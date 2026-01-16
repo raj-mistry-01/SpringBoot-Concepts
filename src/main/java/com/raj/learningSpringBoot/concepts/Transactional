@@ -1,0 +1,131 @@
+ACID property in dbms
+Atomicity
+Consistency
+Isolation
+Durability
+
+BEGIN_TRANSACTION :
+    All operations (Your business logic)
+
+    if all success :
+        commit
+    else :
+        rollback
+
+END TRANSACTION
+
+with your business logic just wrapping the @Transactional will help the adding the verbose code for the transaction
+
+it uses the AOP
+
+Hierarchy of transaction manager
+
+
+
+                            Transaction Manager (intf)
+
+
+                            PlatformTransactionManager (intf)
+                                getTransaction
+                                commit
+                                rollback
+
+
+                            AbstractPlatformTransactionManager (abstract class)
+                                provides the default implementation of above 3 methods
+
+
+
+Datasource          Hibernate           JPA                 JTA
+
+
+JDBC
+
+
+JTA manage Distributed Transactions
+All except the JTA can handle only local transactions
+
+
+you can use Transactional on class level and method level as well
+
+For class it will apply to it's all public method
+
+Declarative approach
+    just write @Transactional annotation
+
+    spring boot choose the automatically which driver choose depending on your data source or  db
+    by default it chooses the JPA
+
+    to tell you want to use which transaction manager
+
+    use @Configuration
+    give datasource method name in @Transactional annotation
+
+
+
+Programmatic
+    you have to code transaction
+
+    2 ways
+        -
+        pass pr get the PlatformTransactionManager object
+        manually call the rollback and commit ops
+
+        -
+        use transaction Template
+        transaction template having the data of dataplatformtransaction manager and all ..
+        use execute method pass args action which are your business logic.
+        in execute method java has commit and rollback all so we do not need to write manually
+
+
+
+
+Propgation
+
+it tells whether to creating a transaction is required or not
+
+based on propgation value set @Transactional creates the transaction
+
+Propgation.REQUIRED,
+           .REQUIRED_NEW,
+           .SUPPORTS,
+           .NOT_SUPPORTED,
+           .MANDATORY,
+           .NEVER
+           etc..
+
+TransactionSynchronizationManager
+
+
+ISOLATION LEVEL
+
+                                DIRTY READ                       NON REPEATABLE READ                         PHANTOM READ
+READ_UNCOMMITED                 yes                              yes                                           yes
+READ_COMMITED                   no                               yes                                            yes
+REPEATABLE_COMMITED             no                               no                                             yes
+SERIALIZABLE                    no                               no                                             no
+
+
+
+locking stategy
+
+read uncommited
+    read : no lock
+    write : no lock
+
+
+read commited :
+    read : shared lock , release when read is done
+    write : exclusive lock , keep till transacation
+
+
+repeatable read :
+    read : same as above
+    write : exclusive lock , release till transacation
+
+Serializable :
+    same as repeatbale read locking  + apply rangle lock
+    range lock is released only at the end of transaction
+
+
+

@@ -1,0 +1,65 @@
+AOP allows us to focus on business logic by handling boilerplate code
+
+@Before (some execution string , some path to your executor)
+pointcut method expression
+matches the methos with particular class
+
+excution pointcut
+you tell that after this execution to refer then execute that only
+
+@Aspect
+@Component
+    @Before
+
+    you do some logic here before your apis does something
+
+    lke you check user has valid jwt token or expired token
+
+Same as we have after as well
+
+within pointcut
+refers to class -> any method in class
+
+annotation pointcut
+matches any method which have this annotation you gave
+@Before("@annotation(org.springframework.boot.autoconfigure.SpringBootApplication)")
+Whenever @ comes you have to provide annotation path
+
+target pointcut
+mathces any method on a particular instance of class
+provide class in it or interface
+
+
+
+@Pointcut(some string)
+public void cutpt()
+
+you can use this pointcut using cutpt()
+used when you want to use common cutpt in many places.
+
+@Around
+
+it is possible we can run before and after
+
+@Before
+-> first execute pointcut and then internal call that intended method
+
+@After
+-> first execute intended method and then call the cut point method
+
+@Around
+you can invoke intended methos in between some body of that pointcut function
+
+How pointcur parsing works?
+
+1. Look for @Aspect annotation
+2. Parse the pointcur expr (PointcurParser.java class)
+3. Store that in efficient ds or cache after parsing
+4. other annotations
+5. for each class itcheck if its eligible for interception baded on pointcut expression
+6. creates a proxy (proxy is code to execute)
+JDK dynamic lib proxy or CGLib proxy
+if class is child of any interface or class -> JDK dynamic
+otherwise CGlib used
+proxy class is invoked
+
