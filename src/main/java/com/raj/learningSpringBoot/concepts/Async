@@ -1,0 +1,39 @@
+async means  running parallel
+async does not runs on the static method
+
+sync method means
+main thread called function f sync
+means once f finishes till main is blocked then main contines
+
+async means it will create a new thread for execution of f without blocking the main function further execution
+
+@EnableAsync , @Async , @Bean( for custom executor)
+
+So creating a new thread for a task does the async annotation
+
+How the new thread is created
+
+ThreadPoolExecutor , which  ThreadPoolExecutor ?
+
+first spring find that any default executor exists or not
+
+if finds any like you created in appconfig or anywhere it uses it create the threads and work the async tasks
+
+if not then uses the default executor that is defined by java spring which is simpleAsynctaksexecutor
+
+for custom threadpoolExecutor you have to use :
+    actually it is ThreadPoolTaskExecutor in spring (wrapper of ThreadPoolExecutor in Java)
+
+
+Async method run conditions :
+
+- should be in different class from caller class
+- public method
+
+return something from async method to caller -> use future and completablefuture in caller
+1. use get method to call the async method
+
+Exception handling in async thread
+1. in async method try catch method it self
+2. in caller method either
+3. spring boot async exception handler

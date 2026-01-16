@@ -126,6 +126,3 @@ repeatable read :
 Serializable :
     same as repeatbale read locking  + apply rangle lock
     range lock is released only at the end of transaction
-
-
-
