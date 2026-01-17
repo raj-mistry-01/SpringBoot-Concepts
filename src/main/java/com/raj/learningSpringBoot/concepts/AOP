@@ -7,6 +7,13 @@ matches the methos with particular class
 excution pointcut
 you tell that after this execution to refer then execute that only
 
+
+@Before
+@After
+@Around
+
+they are interceptors , which get invoked after or before your actual code
+
 @Aspect
 @Component
     @Before
@@ -49,6 +56,7 @@ it is possible we can run before and after
 
 @Around
 you can invoke intended methos in between some body of that pointcut function
+jointCut.proceed() method you will use to invoke the interceptor method
 
 How pointcur parsing works?
 

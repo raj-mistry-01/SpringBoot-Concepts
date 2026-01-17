@@ -30,7 +30,7 @@ Async method run conditions :
 - should be in different class from caller class
 - public method
 
-return something from async method to caller -> use future and completablefuture in caller
+return something from async method to caller -> use future and completablefuture in caller method
 1. use get method to call the async method
 
 Exception handling in async thread

@@ -1,0 +1,27 @@
+it is a mediator, which get invoked before or after your actual code.
+
+mycustominterceptor implements HandleInterceptor
+and implement this methods
+prehandle
+posthandle
+aftercompletion
+
+in app config you have to register your interceptor to spring.
+
+it is like all middleware actions for an incoming http request
+
+flow :
+req came
+prehandle of your interceptor
+controller main logic
+post handle
+after completion
+
+using custom annotation
+
+for custom annotation interceptor
+
+invoke it in interceptor class using @annotation in @Around
+
+catch result in it then send that to client. means aspect returns the value catched from your controller
+
