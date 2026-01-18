@@ -1,0 +1,22 @@
+For an incoming http request what we send back to client is a reposne
+
+What does response contains :
+Status code
+headers
+body
+
+order should be followed (boyd shoul be the las , because it follows the builder pattern internally)
+
+ReponseEntity<T> is class
+
+
+You can send a obj then How spring converts to reponseEntity??
+You must have use RestController on top of it then only spring can
+
+@RestController internal having @ReposnseBody so every return it will wrap up in reposneentity
+
+Without it means
+
+@Controller only this
+
+return something -> spring will consider this as view

@@ -33,6 +33,11 @@ public class User {
         System.out.println("Intializing user.");
     }
 
+    public User(String username , String email){
+        this.username = username;
+        this.email = email;
+    }
+
     @PreDestroy
     // we use predestroy to
     // when we know that bean is going destroy and we want to do something

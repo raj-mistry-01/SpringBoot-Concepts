@@ -1,7 +1,10 @@
 package com.raj.learningSpringBoot.config;
 
 import com.raj.learningSpringBoot.middleware.MyCustomInterceptor;
+import com.raj.learningSpringBoot.middleware.MyFilter1;
+import jakarta.servlet.FilterRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -42,5 +45,17 @@ public class AppConfig  implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(myCustomInterceptor)
                 .addPathPatterns("/custominterceptDemo/*");
+    }
+
+    // you can add more than one interceptor
+    // order will be followed of execution
+
+    @Bean
+    public FilterRegistrationBean<MyFilter1> myfilter1(){
+        FilterRegistrationBean<MyFilter1> myFilter1FilterRegistrationBean = new FilterRegistrationBean<>();
+        myFilter1FilterRegistrationBean.setFilter(new MyFilter1());
+        myFilter1FilterRegistrationBean.addUrlPatterns("/testingfilter/*");
+        myFilter1FilterRegistrationBean.setOrder(1);
+        return myFilter1FilterRegistrationBean;
     }
 }

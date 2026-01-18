@@ -1,0 +1,10 @@
+1xx :Informational
+2xx : Success
+3xx : redirection
+4xx : Validation error
+5xx : Server error
+
+
+
+
+

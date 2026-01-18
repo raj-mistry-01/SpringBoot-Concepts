@@ -1,0 +1,10 @@
+filter is used before dispatcher servelet to filter something
+where interceptor is a mediator after dispatcher servelet
+
+implements Filter
+
+init
+doFilter
+destroy  methods to implements
+
+register the filter as bean

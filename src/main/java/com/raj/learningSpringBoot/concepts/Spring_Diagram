@@ -1,0 +1,16 @@
+
+
+
+
+
+
+Request -------->                                               ----->  1. chose the controller         user HadnlerMapping
+
+                (Servelet continer)
+                Apache tomcat server ----------->  Dispatcher -----> 2. Create an instance           use IOC
+                                                Servlet
+                                                        ----------> 3. invike controller method     API invoked
+
+Response   <---------------------------------------------------- 4. get response
+
+Dispatcher servelet
