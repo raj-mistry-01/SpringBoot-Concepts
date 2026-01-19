@@ -1,0 +1,86 @@
+                                                        HandlerExceptionResolver
+                  |                                          |                                           |
+HandlerExceptionResolverComposite               AbstractHandlerExceptionResolver            DefaultErrorAttributes
+                        |                                       |                                       |
+                        |                                       |                                       |
+                        |                                       |                                       |
+            AbstractHandlerMethodExceptonResolver           ResponseExceptionResolver               DefaultExceptionResolver
+                        |
+                        |
+            ExcpetionHandlerExceptionResolver
+
+
+
+Exception is resolved by the resolver classes
+
+Dispatcher servelet
+
+Any exception
+
+-> HandlerExceptionResolverComposite
+
+    -> ExcpetionHandlerExceptionResolver
+
+    then goes if not handeled
+
+    -> ResponseExceptionResolver
+
+    then goes if not handled
+
+    -> DefaultExceptionResolver
+
+
+All resolver completes it's work then goes to (handled part of aboves)
+
+defaultErrorArrtibute creates error response entity
+
+return error reposnse
+
+
+Means exception is handled left from right though resolver classes and response is created after this.
+
+You can always write the custom error and custom throw then wrap in error reponse entity then send back
+
+Using default provided by Spring
+
+@ExceptionHandler annotation
+if any method of controller throws exception
+that will be caught by this annotation
+
+
+
+ExceptionHandlerExceptionResolver
+
+@ExceptionHandler
+@ControllerAdvice
+
+
+
+
+@ExceptionHadler(ExceptionName.class)
+in method pass the object of the above class
+return ReponseEntity.status()
+
+
+
+@ExcecptionHandler({ExceptionName1.class , ExceptionName2.class}) .. more than one
+
+in method you pass the more the object of it which one was occured that will be gone
+or you can pass then general object like Excpetion ex
+
+for one controller you have to write @ExceptionHandler once for each controller - code duplication
+
+make global handler that spring can find it and use it for global exception handling
+
+suppose method and controllerAdvice both present then controller level is given priority.
+
+ResponseStatusException
+
+using @ResponseStatus on top of class defination
+pass the HttpsStatus
+ans in Exception body use super for the message
+then will create reponse here using message and the @ResponseStatus both
+status and reason both
+
+
+never use ExceptionHandler and ReposnseStatus to gether
